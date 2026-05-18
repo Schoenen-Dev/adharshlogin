@@ -1,75 +1,120 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Full Page */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  overflow: hidden;
 }
 
-.navbar {
-  background-color: #222;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
+/* Center Container */
 .page {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
+/* Form Card */
 .auth-form {
-  background: white;
-  padding: 30px;
-  width: 300px;
-  border-radius: 10px;
-}
-
-.auth-form h2 {
+  width: 360px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.8s ease;
 }
 
+/* Heading */
+.auth-form h2 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Input Fields */
 .auth-form input {
   width: 100%;
-  margin-top: 10px;
-  padding: 10px;
+  padding: 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: 0.3s;
 }
 
+/* Placeholder */
+.auth-form input::placeholder {
+  color: #ddd;
+}
+
+/* Input Focus */
+.auth-form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Button */
 .auth-form button {
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  background-color: black;
-  color: white;
+  padding: 14px;
+  margin-top: 18px;
   border: none;
-  cursor: pointer;
-}
-
-.dashboard {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-
-.form-container,
-.preview-container {
-  background: white;
-  padding: 20px;
-  width: 50%;
-  border-radius: 10px;
-}
-
-.form-container input {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-}
-button {
-  width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  background-color: black;
+  border-radius: 12px;
+  background: linear-gradient(to right, #ff512f, #dd2476);
   color: white;
-  border: none;
+  font-size: 17px;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Button Hover */
+.auth-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(221, 36, 118, 0.4);
+}
+
+/* Bottom Text */
+.auth-form p {
+  margin-top: 20px;
+  color: #eee;
+  font-size: 14px;
+}
+
+/* Links */
+.auth-form a {
+  color: #ff9f43;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
