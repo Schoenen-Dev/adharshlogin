@@ -165,7 +165,9 @@ app.post("/saveResume", async (req, res) => {
   }
 });
 
-
+app.get("/", (req, res) => {
+  res.send("Backend Running Successfully");
+});
 
 
 app.listen(5000, () => {

@@ -32,7 +32,7 @@ function ResumeForm({ setResumeData }) {
 
       // Save to MongoDB
       const response = await axios.post(
-        "http://localhost:5000/saveResume",
+        "https://resume-backend-lhow.onrender.com/saveResume",
         formData
       );
 

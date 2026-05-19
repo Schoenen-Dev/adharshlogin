@@ -25,7 +25,7 @@ function Signup() {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/signup",
+        "https://resume-backend-lhow.onrender.com/signup",
         signupData
       );
 
