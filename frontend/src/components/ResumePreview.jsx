@@ -1,6 +1,9 @@
 function ResumePreview({ resumeData }) {
+
   return (
+
     <div className="preview-container">
+
       <h2>Resume Preview</h2>
 
       <p>
@@ -16,8 +19,21 @@ function ResumePreview({ resumeData }) {
       </p>
 
       <p>
+        <strong>Address:</strong> {resumeData.address}
+      </p>
+
+      <p>
         <strong>Skills:</strong> {resumeData.skills}
       </p>
+
+      <p>
+        <strong>Education:</strong> {resumeData.education}
+      </p>
+
+      <p>
+        <strong>Experience:</strong> {resumeData.experience}
+      </p>
+
     </div>
   );
 }

@@ -1,8 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 function Signup() {
+
   const navigate = useNavigate();
 
   const [signupData, setSignupData] = useState({
@@ -19,28 +20,38 @@ function Signup() {
   };
 
   const handleSignup = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/signup",
-      signupData
-    );
+    try {
 
-    console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:5000/signup",
+        signupData
+      );
 
-    alert("Signup Successful");
-  } catch (error) {
-    console.log(error);
+      if (response.data.message === "Signup successful") {
 
-    alert("Signup Failed");
-  }
-};
+        alert("Signup Successful");
+
+        // Go to login page ONLY after signup success
+        navigate("/login");
+
+      } else {
+        alert(response.data.message);
+      }
+
+    } catch (error) {
+      console.log(error);
+      alert("Signup Failed");
+    }
+  };
 
   return (
-    <div className="page">
-      <form className="auth-form" onSubmit={handleSignup}>
-        <h2>Signup</h2>
+    <div>
+
+      <h1>Signup Page</h1>
+
+      <form onSubmit={handleSignup}>
 
         <input
           type="text"
@@ -49,12 +60,16 @@ function Signup() {
           onChange={handleChange}
         />
 
+        <br /><br />
+
         <input
           type="email"
           name="email"
           placeholder="Enter Email"
           onChange={handleChange}
         />
+
+        <br /><br />
 
         <input
           type="password"
@@ -63,12 +78,20 @@ function Signup() {
           onChange={handleChange}
         />
 
-        <button type="submit">Signup</button>
+        <br /><br />
 
-        <p>
-          Already have account? <Link to="/">Login</Link>
-        </p>
+        <button type="submit">
+          Signup
+        </button>
+
       </form>
+
+      <br />
+
+      <Link to="/login">
+        Already have account? Login
+      </Link>
+
     </div>
   );
 }

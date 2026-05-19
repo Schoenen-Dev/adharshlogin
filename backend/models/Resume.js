@@ -1,29 +1,15 @@
 import mongoose from "mongoose";
 
-const resumeSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
+const ResumeSchema = new mongoose.Schema({
 
-    name: String,
+  name: String,
+  email: String,
+  phone: String,
+  address: String,
+  skills: String,
+  education: String,
+  experience: String
 
-    email: String,
+});
 
-    phone: String,
-
-    skills: String,
-
-    education: String,
-
-    experience: String,
-  },
-  {
-    timestamps: true,
-  }
-);
-
-const Resume = mongoose.model("Resume", resumeSchema);
-
-export default Resume;
+export default mongoose.model("Resume", ResumeSchema);
