@@ -1,6 +1,6 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
 
 function Signup() {
 
@@ -13,13 +13,17 @@ function Signup() {
   });
 
   const handleChange = (e) => {
+
     setSignupData({
       ...signupData,
       [e.target.name]: e.target.value,
     });
   };
 
+
+
   const handleSignup = async (e) => {
+
     e.preventDefault();
 
     try {
@@ -29,68 +33,72 @@ function Signup() {
         signupData
       );
 
+      console.log(response.data);
+
       if (response.data.message === "Signup successful") {
 
         alert("Signup Successful");
 
-        // Go to login page ONLY after signup success
+        // GO TO LOGIN PAGE
         navigate("/login");
 
       } else {
+
         alert(response.data.message);
       }
 
     } catch (error) {
+
       console.log(error);
+
       alert("Signup Failed");
     }
   };
 
+
+
   return (
-    <div>
 
-      <h1>Signup Page</h1>
+    <div className="page">
 
-      <form onSubmit={handleSignup}>
+      <form className="auth-form" onSubmit={handleSignup}>
+
+        <h2>Signup</h2>
 
         <input
           type="text"
           name="name"
           placeholder="Enter Name"
           onChange={handleChange}
+          required
         />
-
-        <br /><br />
 
         <input
           type="email"
           name="email"
           placeholder="Enter Email"
           onChange={handleChange}
+          required
         />
-
-        <br /><br />
 
         <input
           type="password"
           name="password"
           placeholder="Enter Password"
           onChange={handleChange}
+          required
         />
-
-        <br /><br />
 
         <button type="submit">
           Signup
         </button>
 
+        <p>
+          Already have account?
+          <Link to="/login"> Login</Link>
+        </p>
+
       </form>
-
-      <br />
-
-      <Link to="/login">
-        Already have account? Login
-      </Link>
 
     </div>
   );

@@ -1,6 +1,6 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function Login() {
 
@@ -12,11 +12,14 @@ function Login() {
   });
 
   const handleChange = (e) => {
+
     setLoginData({
       ...loginData,
       [e.target.name]: e.target.value,
     });
   };
+
+
 
   const handleLogin = async (e) => {
 
@@ -29,11 +32,12 @@ function Login() {
         loginData
       );
 
+      console.log(response.data);
+
       if (response.data.message === "Login successful") {
 
         alert("Login Successful");
 
-        // Go to Dashboard page
         navigate("/dashboard");
 
       } else {
@@ -44,38 +48,45 @@ function Login() {
     } catch (error) {
 
       console.log(error);
+
       alert("Login Failed");
     }
   };
 
+
+
   return (
-    <div>
 
-      <h1>Login Page</h1>
+    <div className="page">
 
-      <form onSubmit={handleLogin}>
+      <form className="auth-form" onSubmit={handleLogin}>
+
+        <h2>Login</h2>
 
         <input
           type="email"
           name="email"
           placeholder="Enter Email"
           onChange={handleChange}
+          required
         />
-
-        <br /><br />
 
         <input
           type="password"
           name="password"
           placeholder="Enter Password"
           onChange={handleChange}
+          required
         />
-
-        <br /><br />
 
         <button type="submit">
           Login
         </button>
+
+        <p>
+          Don't have account?
+          <Link to="/"> Signup</Link>
+        </p>
 
       </form>
 
