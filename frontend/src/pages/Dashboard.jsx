@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Navbar from "../components/Navbar";
 import ResumeForm from "../components/ResumeForm";
 import ResumePreview from "../components/ResumePreview";
 
@@ -17,17 +16,12 @@ function Dashboard() {
   });
 
   return (
+
     <div>
 
-      <Navbar />
+      <ResumeForm setResumeData={setResumeData} />
 
-      <div className="dashboard">
-
-        <ResumeForm setResumeData={setResumeData} />
-
-        <ResumePreview resumeData={resumeData} />
-
-      </div>
+      <ResumePreview resumeData={resumeData} />
 
     </div>
   );

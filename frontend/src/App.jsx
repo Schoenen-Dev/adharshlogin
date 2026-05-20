@@ -4,9 +4,12 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
+import ResumeTable from "./components/ResumeTable";
+
 function App() {
 
   return (
+
     <BrowserRouter>
 
       <Routes>
@@ -17,9 +20,12 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
 
+        <Route path="/resumes" element={<ResumeTable />} />
+
       </Routes>
 
     </BrowserRouter>
+
   );
 }
 

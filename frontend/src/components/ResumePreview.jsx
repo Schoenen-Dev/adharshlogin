@@ -1,5 +1,10 @@
 function ResumePreview({ resumeData }) {
 
+  const handlePrint = () => {
+
+    window.print();
+  };
+
   return (
 
     <div className="preview-container">
@@ -33,6 +38,10 @@ function ResumePreview({ resumeData }) {
       <p>
         <strong>Experience:</strong> {resumeData.experience}
       </p>
+
+      <button onClick={handlePrint}>
+        Print Resume
+      </button>
 
     </div>
   );

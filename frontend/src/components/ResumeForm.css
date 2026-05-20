@@ -230,3 +230,19 @@ button:hover{
     font-size: 16px;
   }
 }
+
+@media print {
+
+  button {
+    display: none;
+  }
+
+  .resume-card {
+    display: none;
+  }
+
+  .preview-container {
+    width: 100%;
+    padding: 20px;
+  }
+}

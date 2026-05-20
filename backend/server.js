@@ -165,6 +165,30 @@ app.post("/saveResume", async (req, res) => {
   }
 });
 
+
+app.get("/resumes", async (req, res) => {
+
+  try {
+
+    const resumes = await Resume.find();
+
+    res.json(resumes);
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      message: error.message
+    });
+  }
+});
+
+
+
+
+
+
 app.get("/", (req, res) => {
   res.send("Backend Running Successfully");
 });
